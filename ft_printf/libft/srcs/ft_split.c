@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schuah <schuah@student.42.kl.edu.my>       +#+  +:+       +#+        */
+/*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:02:20 by schuah            #+#    #+#             */
-/*   Updated: 2022/07/07 10:29:15 by schuah           ###   ########.fr       */
+/*   Updated: 2022/09/14 15:15:09 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	count = getcount(s, c);
-	output = malloc(sizeof(char *) * count + 1);
+	output = malloc(sizeof(char *) * (count + 1));
 	if (output == NULL)
 		return (NULL);
 	i = 0;
