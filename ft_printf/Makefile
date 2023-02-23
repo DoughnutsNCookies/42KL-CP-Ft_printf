@@ -6,7 +6,7 @@
 #    By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/07 10:52:13 by schuah            #+#    #+#              #
-#    Updated: 2023/02/22 15:34:25 by schuah           ###   ########.fr        #
+#    Updated: 2023/02/23 13:58:43 by schuah           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,8 +40,6 @@ $(OBJS_DIR)%.o: $(SRCS_DIR)%.c
 $(NAME):		$(OBJS)
 				$(ARRC) $(NAME) $(OBJS)
 
-bonus:			$(NAME)
-
 libft:
 				make -C $(LIBFT_DIR)
 				cp $(LIBFT_DIR)/$(LIBFT) .
@@ -55,4 +53,6 @@ fclean:			clean
 				rm -rf $(NAME)
 				rm -rf $(LIBFT)
 
-re:				all bonus libft clean fclean re
+re:				fclean all
+
+.PHONY:			all libft clean fclean re
