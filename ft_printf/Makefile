@@ -6,7 +6,7 @@
 #    By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/07 10:52:13 by schuah            #+#    #+#              #
-#    Updated: 2023/02/23 13:58:43 by schuah           ###   ########.fr        #
+#    Updated: 2023/03/01 14:26:59 by schuah           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME		=	libftprintf.a
 LIBFT		=	libft.a
 ARRC		=	ar rcs
 CC			=	gcc
-RM			=	rm -f
+RM			=	rm -rf
+MKDIR		=	mkdir -p
 CFLAGS		=	-Wall -Wextra -Werror
 SRCS_FILES	=	ft_printf \
 				ft_flags \
@@ -30,9 +31,8 @@ LIBFT_DIR	=	libft
 OBJS_DIR	=	objs/
 
 all:			
-				mkdir -p $(OBJS_DIR)
-				make libft	
-				make $(NAME)
+				$(MKDIR) $(OBJS_DIR)
+				make libft $(NAME)
 
 $(OBJS_DIR)%.o: $(SRCS_DIR)%.c
 				$(CC) $(CFLAGS) -c $< -o $@
@@ -46,12 +46,11 @@ libft:
 				mv $(LIBFT) $(NAME)
 
 clean:
-				rm -rf $(OBJS_DIR)
+				$(RM) $(OBJS_DIR)
 				make fclean -C $(LIBFT_DIR)
 
 fclean:			clean
-				rm -rf $(NAME)
-				rm -rf $(LIBFT)
+				$(RM) $(NAME) $(LIBFT)
 
 re:				fclean all
 
